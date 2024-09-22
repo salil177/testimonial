@@ -1,0 +1,199 @@
+
+ {%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+   .test-img-div img{
+         width: 40px;
+   }
+
+   .testi-inner{
+     padding:20px;
+      box-shadow: 0 0 4px 2px rgba(196, 196, 196, 0.25);
+    border-radius: 4px;
+     background:white;
+   }
+
+   .test-text-div{
+     border-bottom: 1px solid #e8e8e8;
+   }
+
+   .test-cont-div{
+     padding-top:10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+   }
+
+   .test-cont-div-inner p{
+     margin:0px;
+   }
+
+   .test-cont-div-inner h4{
+     font-weight:bold;
+     color:#9F320D;
+     margin:0px;
+   }
+
+   .mySwiper-testi{
+         padding: 5px 2px 40px 2px !important;
+   }
+
+   .swiper-pagination-bullet-active{
+     background:black !important;
+   }
+{%- endstyle -%}
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <div class="color-{{ section.settings.color_scheme }}">
+<div class="section-{{ section.id }}-padding">
+   <div class="featured-in-main page-width {% if section.settings.full_width %} div-full-width{% endif %}">
+
+
+ <div class="swiper mySwiper-testi">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+       
+      <div class="swiper-slide">
+         <div class="testi-inner">
+        <div class="test-img-div">
+           <img src="https://cdn.shopify.com/s/files/1/0859/2388/9465/files/Vector.svg?v=1726993718"/>
+        </div>
+            <div class="customReview-customerStar star--6f0170c9-3b61-4147-95e0-90001dad0716"><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill="#FFA033" d="M7.08879 1.16699L8.91097 4.81866L12.9858 5.40783L10.0373 8.24866L10.7331 12.262L7.08879 10.3662L3.44443 12.262L4.14028 8.24866L1.19177 5.40783L5.26661 4.81866L7.08879 1.16699Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill="#FFA033" d="M7.08879 1.16699L8.91097 4.81866L12.9858 5.40783L10.0373 8.24866L10.7331 12.262L7.08879 10.3662L3.44443 12.262L4.14028 8.24866L1.19177 5.40783L5.26661 4.81866L7.08879 1.16699Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill="#FFA033" d="M7.08879 1.16699L8.91097 4.81866L12.9858 5.40783L10.0373 8.24866L10.7331 12.262L7.08879 10.3662L3.44443 12.262L4.14028 8.24866L1.19177 5.40783L5.26661 4.81866L7.08879 1.16699Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill="#FFA033" d="M7.08879 1.16699L8.91097 4.81866L12.9858 5.40783L10.0373 8.24866L10.7331 12.262L7.08879 10.3662L3.44443 12.262L4.14028 8.24866L1.19177 5.40783L5.26661 4.81866L7.08879 1.16699Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg><svg width="14" height="13" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path fill="#FFA033" d="M7.08879 1.16699L8.91097 4.81866L12.9858 5.40783L10.0373 8.24866L10.7331 12.262L7.08879 10.3662L3.44443 12.262L4.14028 8.24866L1.19177 5.40783L5.26661 4.81866L7.08879 1.16699Z" stroke="#FFA033" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></div>
+
+          <div class="test-text-div">
+            <h4>{{ block.settings.text }}</h4>
+        </div>
+
+         <div class="test-cont-div">
+           <div class="test-cont-div-inner">
+             <h4>{{ block.settings.text-name }}</h4>
+             <p>{{ block.settings.text-name-desc }}</p>
+             
+             </div>
+        </div>
+    </div>
+         </div>
+  {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+     </div>
+    </div>
+    </div>
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper-testi", {
+      slidesPerView: 1.03,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1.2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+      },
+    });
+  </script>
+{% schema %}
+  {
+    "name": "Testimonials",
+    "settings": [
+              {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+        {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "t:sections.featured-collection.settings.full_width.label",
+      "default": true
+    },
+        {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 52
+    }
+    ],
+
+  "blocks": [
+    {
+      "type": "title",
+      "name": "Title",
+      "limit": 9,
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Testimonials Text"
+        },
+        {
+          "type": "text",
+          "id": "text-name",
+          "label": "Testimonials Name"
+        },
+              {
+          "type": "text",
+          "id": "text-name-desc",
+          "label": "Testimonials Name Text"
+        },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ]
+  }
+{% endschema %}
